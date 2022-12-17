@@ -1,0 +1,24 @@
+{% extends 'movie_app/base.html' %}
+
+{% block title %}
+{{act}}
+{% endblock %}
+
+{% block content %}
+    <h1>{{act}}</h1>
+
+        <h2>Имя  - {{act.first_name}}</h2>
+        <h2>Фамилия - {{act.last_name}}</h2>
+        {% if act.gender is act.MALE %}
+            <h2>Пол - Мужской</h2>
+        {% else %}
+            <h2>Пол - Женский</h2>
+        {% endif %}
+
+        <h1>Список фильмов</h1>
+<ul>
+    {% for movie in act.movies.all %}
+        <li><h2>{{ movie }}</h2></li>
+    {% endfor %}
+</ul>
+{% endblock %}
